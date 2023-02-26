@@ -2,6 +2,7 @@
     <main>
         <div class="main-container">
             <AuthorInfo />
+            <NewsItem />
             <div class="advertising-block">
                 <Advertising />
                 <TVProgram />
@@ -15,12 +16,14 @@ import { Component, Vue } from 'vue-property-decorator';
 import AuthorInfo from '@/components/AuthorInfo.vue';
 import Advertising from '../components/Advertising.vue';
 import TVProgram from '../components/TVProgram.vue';
+import NewsItem from '../components/NewsItem.vue';
 
 @Component({
     components: {
         AuthorInfo,
         Advertising,
         TVProgram,
+        NewsItem,
     },
 })
 export default class MainPage extends Vue {}
