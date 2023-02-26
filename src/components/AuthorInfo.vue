@@ -31,6 +31,12 @@
     </div>
 </template>
 
+<script>
+export default {
+    name: 'AuthorInfo',
+};
+</script>
+
 <style lang="scss" scoped>
 .author {
     display: flex;

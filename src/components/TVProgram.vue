@@ -29,6 +29,12 @@
     </div>
 </template>
 
+<script>
+export default {
+    name: 'TVProgram',
+};
+</script>
+
 <style lang="scss" scoped>
 .tv-program {
     width: 276px;

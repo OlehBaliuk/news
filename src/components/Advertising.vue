@@ -4,6 +4,12 @@
     </div>
 </template>
 
+<script>
+export default {
+    name: 'Advertising',
+};
+</script>
+
 <style lang="scss" scoped>
 .advertising {
     margin: 41px 0 40px 28px;
