@@ -1,6 +1,6 @@
 <template>
-    <div class="container">
-        <button class="button">{{ title }}</button>
+    <div v-if="isVisibleButton" class="container">
+        <button @click="handleClick" class="button" :disabled="isDisabledButton">{{ title }}</button>
     </div>
 </template>
 
@@ -10,6 +10,20 @@ export default {
         title: {
             type: String,
             default: 'Завантажити новини',
+        },
+
+        handleClick: {
+            type: Function,
+        },
+
+        isVisibleButton: {
+            type: Boolean,
+            default: true,
+        },
+
+        isDisabledButton: {
+            type: Boolean,
+            default: false,
         },
     },
 };

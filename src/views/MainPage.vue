@@ -3,7 +3,12 @@
         <div class="main-container">
             <AuthorInfo />
             <NewsItem />
-            <CustomButton />
+            <CustomButton
+                :handleClick="handleClick"
+                :isVisibleButton="isVisibleButton"
+                :title="title"
+                :isDisabledButton="isDisabledButton"
+            />
             <div class="advertising-block">
                 <Advertising />
                 <TVProgram />
@@ -22,12 +27,44 @@ import CustomButton from '@/components/CustomButton.vue';
 export default {
     name: 'MainPage',
 
+    data() {
+        return {
+            news: [],
+            page: 1,
+            title: 'Завантажити новини',
+            isVisibleButton: true,
+            isDisabledButton: false,
+        };
+    },
+
     components: {
         AuthorInfo,
         Advertising,
         TVProgram,
         NewsItem,
         CustomButton,
+    },
+
+    methods: {
+        async handleClick() {
+            try {
+                this.isDisabledButton = true;
+
+                const { data } = await this.axios.get(`news?page=${this.page}&limit=5`);
+
+                if (data.length) {
+                    this.news.push(data);
+                    this.page += 1;
+                    this.title = 'Більше новин';
+                } else {
+                    this.isVisibleButton = false;
+                }
+            } catch (error) {
+                console.log(error);
+            } finally {
+                this.isDisabledButton = false;
+            }
+        },
     },
 };
 </script>
