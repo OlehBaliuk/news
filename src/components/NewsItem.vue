@@ -104,6 +104,7 @@
         flex-direction: column;
         align-items: center;
         width: 336px;
+        border: none;
 
         &__main-info {
             margin: 12px 0 0 0;
