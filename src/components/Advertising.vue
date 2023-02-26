@@ -13,7 +13,9 @@
     }
 
     @media (max-width: 1300px) {
-        margin: 32px 0;
+        position: relative;
+        right: 2.5px;
+        margin: 30px 0 34px 0;
 
         &__image {
             width: 336px;
