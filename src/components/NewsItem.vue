@@ -22,13 +22,6 @@
     </article>
 </template>
 
-<script>
-// import { Vue } from 'vue-property-decorator';
-
-// export default class NewsItem extends Vue {}
-//
-</script>
-
 <style lang="scss" scoped>
 .news-item {
     display: flex;

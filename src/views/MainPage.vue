@@ -13,14 +13,15 @@
 </template>
 
 <script>
-import { Component, Vue } from 'vue-property-decorator';
 import AuthorInfo from '@/components/AuthorInfo.vue';
 import Advertising from '@/components/Advertising.vue';
 import TVProgram from '@/components/TVProgram.vue';
 import NewsItem from '@/components/NewsItem.vue';
 import CustomButton from '@/components/CustomButton.vue';
 
-@Component({
+export default {
+    name: 'MainPage',
+
     components: {
         AuthorInfo,
         Advertising,
@@ -28,8 +29,7 @@ import CustomButton from '@/components/CustomButton.vue';
         NewsItem,
         CustomButton,
     },
-})
-export default class MainPage extends Vue {}
+};
 </script>
 
 <style lang="scss" scoped>

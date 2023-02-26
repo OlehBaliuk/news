@@ -1,13 +1,18 @@
 <template>
     <div class="container">
-        <button class="button">Завантажити новини</button>
+        <button class="button">{{ title }}</button>
     </div>
 </template>
 
 <script>
-import { Vue } from 'vue-property-decorator';
-
-export default class CustomButton extends Vue {}
+export default {
+    props: {
+        title: {
+            type: String,
+            default: 'Завантажити новини',
+        },
+    },
+};
 </script>
 
 <style lang="scss" scoped>

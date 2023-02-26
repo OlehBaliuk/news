@@ -6,15 +6,13 @@
 </template>
 
 <script>
-import { Component, Vue } from 'vue-property-decorator';
 import Header from '@/components/Header.vue';
 
-@Component({
-    components: {
-        Header,
-    },
-})
-export default class App extends Vue {}
+export default {
+    name: 'App',
+
+    components: { Header },
+};
 </script>
 
 <style lang="scss">
