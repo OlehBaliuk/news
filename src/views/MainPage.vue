@@ -2,7 +2,17 @@
     <main>
         <div class="main-container">
             <AuthorInfo />
-            <NewsItem />
+            <template v-if="news.length">
+                <NewsItem
+                    v-for="newsItem in news"
+                    :key="newsItem.id"
+                    :createdAt="newsItem.createdAt"
+                    :commentsCount="newsItem.commentsCount"
+                    :title="newsItem.title"
+                    :content="newsItem.content"
+                    :imageUrl="newsItem.imageUrl"
+                />
+            </template>
             <CustomButton
                 :handleClick="handleClick"
                 :isVisibleButton="isVisibleButton"
@@ -53,7 +63,7 @@ export default {
                 const { data } = await this.axios.get(`news?page=${this.page}&limit=5`);
 
                 if (data.length) {
-                    this.news.push(data);
+                    this.news = [...this.news, ...data];
                     this.page += 1;
                     this.title = 'Більше новин';
                 } else {

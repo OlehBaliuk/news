@@ -66,7 +66,7 @@ export default {
 
     &__statistics {
         position: relative;
-        top: -2px;
+        top: -1px;
         color: rgba(0, 0, 0, 0.54);
     }
 
@@ -100,7 +100,7 @@ export default {
 
     &__description {
         width: 737px;
-        margin-top: 16px;
+        margin-top: 8px;
         margin-bottom: 40px;
         line-height: 20px;
         color: rgba(0, 0, 0, 0.8);

@@ -33,6 +33,7 @@ export default {
 .container {
     width: 891px;
     text-align: center;
+    padding-bottom: 32px;
 }
 
 .button {
@@ -53,7 +54,6 @@ export default {
     .container {
         width: 891px;
         margin: 0 auto;
-        padding-bottom: 32px;
         border-bottom: 1px dashed rgba(0, 0, 0, 0.15);
     }
 

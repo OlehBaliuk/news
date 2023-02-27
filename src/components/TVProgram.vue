@@ -1,30 +1,10 @@
 <template>
     <div class="tv-program">
         <div class="tv-program__title">Програма ТВ</div>
-        <div class="tv-program__item">
-            <p class="tv-program__time">09:25</p>
-            <p class="tv-program__name">т/с “Мене звуть Міша”</p>
-            <p class="tv-program__chanel">Інтер</p>
-        </div>
-        <div class="tv-program__item">
-            <p class="tv-program__time">09:25</p>
-            <p class="tv-program__name">х/ф “Безславные убл...</p>
-            <p class="tv-program__chanel">1+1</p>
-        </div>
-        <div class="tv-program__item">
-            <p class="tv-program__time">09:25</p>
-            <p class="tv-program__name">Фінал Ліги Чемпіо...</p>
-            <p class="tv-program__chanel">Інтер</p>
-        </div>
-        <div class="tv-program__item">
-            <p class="tv-program__time">09:25</p>
-            <p class="tv-program__name">т/с “Мене звуть Міша”</p>
-            <p class="tv-program__chanel">ICTV</p>
-        </div>
-        <div class="tv-program__item">
-            <p class="tv-program__time">09:25</p>
-            <p class="tv-program__name">Шоу “Голос Діти”</p>
-            <p class="tv-program__chanel">Інтер</p>
+        <div v-for="program in programs" :key="program.id" class="tv-program__item">
+            <p class="tv-program__time">{{ program.time }}</p>
+            <p class="tv-program__name">{{ program.name }}</p>
+            <p class="tv-program__chanel">{{ program.chanel }}</p>
         </div>
     </div>
 </template>
@@ -32,6 +12,18 @@
 <script>
 export default {
     name: 'TVProgram',
+
+    data() {
+        return {
+            programs: [
+                { time: '09:25', name: 'т/с “Мене звуть Міша”', chanel: 'Інтер', id: 1 },
+                { time: '09:25', name: 'х/ф “Безславные убл...', chanel: '1+1', id: 2 },
+                { time: '09:25', name: 'Фінал Ліги Чемпіо...', chanel: 'Інтер', id: 3 },
+                { time: '09:25', name: 'т/с “Мене звуть Міша”', chanel: 'ICTV', id: 4 },
+                { time: '09:25', name: 'Шоу “Голос Діти”', chanel: 'Інтер', id: 5 },
+            ],
+        };
+    },
 };
 </script>
 

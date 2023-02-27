@@ -1,22 +1,21 @@
 <template>
     <article class="news-item">
         <div class="news-item__image-container">
-            <img class="news-item__image" src="@/assets/adv.png" alt="news-image" />
+            <img class="news-item__image" :src="imageUrl" alt="news-image" />
         </div>
         <div class="news-item__main-info">
             <div class="news-item__data">
-                <p class="news-item__date">08:30 - 24 ноября 2020</p>
+                <p class="news-item__date">{{ formatDate }}</p>
                 <div class="news-item__comments-container">
                     <img class="news-item__comment-icon" src="@/assets/comment.svg" alt="comment-icon" />
-                    <p class="news-item__comments-count">4</p>
+                    <p class="news-item__comments-count">{{ commentsCount }}</p>
                 </div>
             </div>
             <div class="news-item__title">
-                У Білорусі почали відраховувати студентів за протести: з університету - 5 осіб
+                {{ title }}
             </div>
             <div class="news-item__description">
-                Професор Гарварду Сергій Плохій про нові обличчя в українській владі, ідолів і зрадників, майбутнє
-                "руського світу" і уроки Чорнобиля в епоху COVID-19.
+                {{ content }}
             </div>
         </div>
     </article>
@@ -25,6 +24,44 @@
 <script>
 export default {
     name: 'NewsItem',
+
+    props: {
+        createdAt: {
+            type: String,
+        },
+
+        commentsCount: {
+            type: Number,
+        },
+
+        title: {
+            type: String,
+        },
+
+        content: {
+            type: String,
+        },
+
+        imageUrl: {
+            type: String,
+        },
+    },
+
+    computed: {
+        formatDate() {
+            const options = {
+                hour: 'numeric',
+                minute: 'numeric',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+            };
+            const formatter = new Intl.DateTimeFormat('ru', options);
+            const dateString = formatter.format(new Date(this.createdAt));
+
+            return dateString.split(',').reverse().join().replace(/,/g, ' - ').slice(1, -2);
+        },
+    },
 };
 </script>
 
